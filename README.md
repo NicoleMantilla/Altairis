@@ -16,7 +16,7 @@ Para este proyecto, he tomado decisiones orientadas a resolver problemas reales 
 ## Funcionalidades Esenciales
 
 ### 1. Administración de Hoteles
-* **Gestión de Datos:** Lógica optimizada para el alta y edición de propiedades.
+* **Gestión de Datos:** Lógica optimizada para el alta y la edición de propiedades.
 * **Búsqueda Eficiente:** Visualización preparada para manejar volúmenes elevados de registros mediante una interfaz limpia.
 
 ### 2. Inventario y Disponibilidad
