@@ -1,11 +1,13 @@
 services:
-  # BASE DE DATOS MYSQL
+  # BASE DE DATOS (Contenedor de MySQL)
   db:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_DATABASE: altairis_db
-      MYSQL_ROOT_PASSWORD: rootpassword
+      # AQUÍ: Ponemos el nombre de tu base de datos actual
+      MYSQL_DATABASE: hotel_db
+      # AQUÍ: Ponemos tu contraseña actual
+      MYSQL_ROOT_PASSWORD: root 
     ports:
       - "3306:3306"
 
@@ -15,9 +17,10 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/altairis_db
+      # IMPORTANTE: En Docker, 'localhost' pasa a ser el nombre del servicio 'db'
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/hotel_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=rootpassword
+      - SPRING_DATASOURCE_PASSWORD=root
     depends_on:
       - db
 
