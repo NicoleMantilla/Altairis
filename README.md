@@ -1,32 +1,30 @@
-# PRUEBA ALTAIRIS HOTELS - Backoffice Fullstack MVP
+# PRUEBA ALTAIRIS HOTELS - Backoffice Fullstack MVP 🏨
 
-He desarrollado esta solución integral para **Altairis Hotels** con el objetivo de centralizar la gestión operativa de sus propiedades. El enfoque principal ha sido crear una herramienta intuitiva que permita visualizar el estado del negocio de forma clara y eficiente.
-
----
-
-## Funcionalidades Implementadas
-
-### 1. Gestión Integral de Hoteles
-* **Administración:** Alta de hoteles con sus datos principales.
-* **Visualización:** Búsqueda fluida diseñada para manejar volúmenes elevados de registros.
-
-### 2. Control de Tipos de Habitación
-* **Catálogo Visual:** Gestión de tipos de habitación por hotel con detalles técnicos y soporte de imágenes para identificación rápida.
-
-### 3. Operativa y Reservas
-* **Inventario:** Visualización clara de la disponibilidad para facilitar la comprensión operativa.
-* **Gestión de Reservas:** Registro y consulta de la actividad diaria de forma centralizada.
+He desarrollado esta solución integral para **Altairis Hotels** con el objetivo de centralizar la gestión operativa de sus propiedades. El enfoque principal ha sido crear una herramienta intuitiva que permita visualizar el estado del negocio de forma clara y eficiente, priorizando la **mantenibilidad del código** y un **enfoque arquitectónico profesional**.
 
 ---
 
-## 🧩 Arquitectura y Decisiones Técnicas
+## Enfoque Arquitectónico y Criterio Técnico
 
-He diseñado este MVP bajo un enfoque **Fullstack profesional**, priorizando la mantenibilidad y el tipado estricto.
+Para este proyecto, he tomado decisiones orientadas a resolver problemas reales de negocio mediante una arquitectura robusta:
 
-### Estructura del Proyecto (Monorepo)
-* **Backend (Java/Spring Boot):** Arquitectura por capas (*Domain, Application, Infrastructure*) para un desacoplamiento total de la lógica de negocio.
-* **Frontend (Next.js 15):** Uso de App Router, TypeScript y **Tailwind CSS v4** para una interfaz moderna y rápida.
-* **Persistencia:** MySQL con Hibernate, configurado para la generación automática de esquemas.
+* **Claridad y Lógica:** El código sigue principios **SOLID**. He utilizado el **Patrón Repositorio** para desacoplar la lógica de persistencia y **DTOs** para asegurar contratos de datos estrictos, evitando la exposición innecesaria de entidades de base de datos.
+* **Frontend Escalable (Next.js 15):** He seleccionado el **App Router** y **TypeScript** para garantizar un tipado fuerte en toda la aplicación, reduciendo errores en tiempo de ejecución y mejorando la mantenibilidad.
+
+---
+
+## Funcionalidades Esenciales
+
+### 1. Administración de Hoteles
+* **Gestión de Datos:** Lógica optimizada para el alta y edición de propiedades.
+* **Búsqueda Eficiente:** Visualización preparada para manejar volúmenes elevados de registros mediante una interfaz limpia.
+
+### 2. Inventario y Disponibilidad
+* **Gestión de Tipos de Habitación:** Asociación dinámica de habitaciones por hotel.
+* **Comprensión Operativa:** Visualización gráfica del inventario diseñada específicamente para facilitar la lectura rápida del estado del hotel.
+
+### 3. Operativa de Reservas
+* **Registro de Actividad:** Flujo lógico para el alta de reservas, manteniendo la integridad referencial con el inventario disponible.
 
 ---
 
@@ -63,6 +61,7 @@ El MVP está diseñado como una base sólida sobre la cual se pueden implementar
 
 * **Autenticación y RBAC:** Implementación de Spring Security con JWT para diferenciar roles entre administradores de hotel y personal de recepción.
 * **Notificaciones:** Sistema de alertas mediante correo electrónico (Spring Mail) para confirmaciones de reserva y cambios de disponibilidad.
+* Testing: Ampliación de cobertura con tests unitarios.
 
 ---
 
