@@ -25,6 +25,15 @@ Para este proyecto, he tomado decisiones orientadas a resolver problemas reales 
 
 ### 3. Operativa de Reservas
 * **Registro de Actividad:** Flujo lógico para el alta de reservas, manteniendo la integridad referencial con el inventario disponible.
+---
+
+## 🧪 Validación y Pruebas (Postman)
+
+Para garantizar la fiabilidad de la lógica de negocio y los contratos de datos (DTOs), se ha validado toda la API mediante **Postman**.
+
+* **Colección incluida:** En la carpeta `/postman` encontrarás el archivo `altairis_collection.json`.
+* **Cómo usarla:** Puedes importar este archivo en Postman para probar inmediatamente todos los endpoints (Hoteles, Habitaciones, Reservas) sin tener que configurar las peticiones manualmente.
+* **Criterio Técnico:** El uso de esta colección asegura que los flujos de datos (POST/GET) cumplen con las validaciones del backend y facilitan la revisión de la lógica de integración.
 
 ---
 
