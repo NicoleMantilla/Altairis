@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Google Gemini Demo">
+  <library name="dependencies">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/backend/Google Gemini Demo.zip!/" />
     </CLASSES>

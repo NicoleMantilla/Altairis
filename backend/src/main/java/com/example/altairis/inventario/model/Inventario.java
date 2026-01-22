@@ -1,10 +1,10 @@
-package com.example.altairis.inventario.controller;
+package com.example.altairis.inventario.model;
 import com.example.altairis.habitacion.model.Habitacion;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.NoArgsConstructor; // Constructor vacío
+import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 
@@ -17,9 +17,9 @@ public class Inventario {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "tipo_habitacion_id")
-    private Habitacion tipoHabitacion;
+    @JoinColumn(name = "habitacion_id")
+    private Habitacion habitacion;
 
     private LocalDate fecha;
-    private Integer disponibilidad; // Cantidad de habitaciones físicas libres ese día
+    private Integer disponibilidad; // cantidad de habitaciones físicas libres ese día
 }

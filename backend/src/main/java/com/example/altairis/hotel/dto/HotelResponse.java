@@ -1,41 +1,27 @@
 package com.example.altairis.hotel.dto;
 
-import com.example.altairis.hotel.model.Hoteles;
+import com.example.altairis.hotel.model.Hotel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Setter
-public class HotelesResponse {
+@NoArgsConstructor
+public class HotelResponse {
 
     private Long id;
     private String nombre;
-    private String categoria; // Lo devolvemos como String para evitar líos con el Enum en el JSON
-    private String logoUrl;
-    private String descripcion;
+    private String direccion;
+    private String ciudad;
+    private Integer estrellas;
 
-    // DATOS SEGUROS DEL ENTRENADOR (Solo lo necesario)
-    private Long entrenadorId;
-    private String nombreEntrenador;
-
-    // Constructor que mapea de Entidad -> DTO
-    public HotelesResponse(Hoteles hoteles) {
-        this.id = hoteles.getId();
-        this.nombre = hoteles.getNombre();
-        this.logoUrl = hoteles.getLogoUrl();
-        this.descripcion = hoteles.getDescripcion();
-
-        // Convertimos el Enum a String
-        if (hoteles.getCategoria() != null) {
-            this.categoria = hoteles.getCategoria().toString();
-        }
-
-        // Mapeo SEGURO del Entrenador (Evita NullPointerException si no hay entrenador)
-        if (hoteles.getEntrenador() != null) {
-            this.entrenadorId = hoteles.getEntrenador().getId();
-
-            // getNombre() y getApellidos() vienen heredados de Usuario
-            this.nombreEntrenador = hoteles.getEntrenador().getNombre() + " " + hoteles.getEntrenador().getApellidos();
-        }
+    //constructor que mapea Entidad -> DTO
+    public HotelResponse(Hotel hotel) {
+        this.id = hotel.getId();
+        this.nombre = hotel.getNombre();
+        this.direccion = hotel.getDireccion();
+        this.ciudad = hotel.getCiudad();
+        this.estrellas = hotel.getEstrellas();
     }
 }
