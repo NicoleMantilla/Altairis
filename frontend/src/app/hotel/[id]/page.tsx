@@ -2,6 +2,7 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import InventarioTable from "../../../components/InventarioTable";
+import Image from "next/image";
 
 interface Hotel {
   id: number;
@@ -66,37 +67,43 @@ export default function HotelDetailPage() {
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">
               Tipos de Habitación
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              {habitaciones.map((hab) => (
-                <div
-                  key={hab.id}
-                  onClick={() => setHabitacionSeleccionada(hab.id)}
-                  className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
-                    habitacionSeleccionada === hab.id
-                      ? "border-blue-500 bg-blue-50"
-                      : "border-gray-100 hover:border-blue-200"
-                  }`}
-                >
-                  <div className="w-20 h-20 bg-gray-200 rounded-lg flex-shrink-0 flex items-center justify-center text-2xl">
-                    {hab.nombre.toLowerCase().includes("suite") ? "🏨" : "🛏️"}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-gray-800">
-                      {hab.nombre}
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      Capacidad: {hab.capacidad} pers.
-                    </p>
-                    <p className="text-[#3d4a59] font-bold mt-1">
-                      {hab.precioBase || hab.precio || 0}€{" "}
-                      <span className="text-xs text-gray-400 font-normal">
-                        / noche
-                      </span>
-                    </p>
-                  </div>
+            {habitaciones.map((hab) => (
+              <div
+                key={hab.id}
+                onClick={() => setHabitacionSeleccionada(hab.id)}
+                className={`p-4 border-2 rounded-xl cursor-pointer transition-all flex gap-4 ${
+                  habitacionSeleccionada === hab.id
+                    ? "border-blue-500 bg-blue-50"
+                    : "border-gray-100 hover:border-blue-200"
+                }`}
+              >
+                {/* CONTENEDOR DE LA IMAGEN CON WIDTH/HEIGHT DEFINIDOS POR TAILWIND */}
+                <div className="w-32 h-24 bg-gray-200 rounded-lg flex-shrink-0 overflow-hidden relative">
+                  <Image
+                    src={`/images/Hotel-${hab.id}.jpg`}
+                    alt={hab.nombre}
+                    fill // Esto elimina la necesidad de poner width={...} y height={...}
+                    className="object-cover" // Mantiene la proporción de la foto
+                    sizes="(max-width: 768px) 100vw, 128px"
+                  />
                 </div>
-              ))}
-            </div>
+
+                <div>
+                  <h3 className="font-bold text-lg text-gray-800">
+                    {hab.nombre}
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Capacidad: {hab.capacidad} pers.
+                  </p>
+                  <p className="text-[#3d4a59] font-bold mt-1">
+                    {hab.precioBase || hab.precio || 0}€{" "}
+                    <span className="text-xs text-gray-400 font-normal">
+                      / noche
+                    </span>
+                  </p>
+                </div>
+              </div>
+            ))}
 
             <hr className="my-8" />
 
