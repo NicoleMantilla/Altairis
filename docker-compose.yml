@@ -4,9 +4,9 @@ services:
     image: mysql:8.0
     restart: always
     environment:
-      # AQUÍ: Ponemos el nombre de tu base de datos actual
+      
       MYSQL_DATABASE: hotel_db
-      # AQUÍ: Ponemos tu contraseña actual
+      
       MYSQL_ROOT_PASSWORD: root 
     ports:
       - "3306:3306"
